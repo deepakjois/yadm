@@ -32,5 +32,6 @@
 [grep]
 	extendRegexp = true
 	lineNumber = true
-[credential]
-	helper = cache --timeout=604800
+[include]
+	path = .gitconfig.local
+
