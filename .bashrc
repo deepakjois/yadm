@@ -75,6 +75,10 @@ alias tmux="tmux -2 -u"
 # Python 3 virtual environment
 alias pyenv="source ~/pyenv/bin/activate"
 
+# Vim server client stuff
+alias vsrv="vim --servername srv"
+alias vr="vim --servername srv --remote-silent"
+
 # Golang
 export GOPATH=~/.gopath
 
