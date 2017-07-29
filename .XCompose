@@ -1,0 +1,8 @@
+include "%L"
+<Multi_key> <quotedbl>   : "“"
+<Multi_key> <quotedbl> <quotedbl> : "”"
+<Multi_key> <apostrophe>   : "‘"
+<Multi_key> <apostrophe> <apostrophe> : "’"
+<Multi_key> <equal> <r> : "₹"
+
+
