@@ -17,6 +17,8 @@ alias l='ls -CF'
 # Fancy Prompt
 GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_SHOW_UPSTREAM=1
+GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+GIT_PROMPT_SHOW_UNTRACKED_FILES=normal # can be no, normal or all; determines counting of untracked files
 GIT_PROMPT_THEME=Solarized
 source ~/.bash-git-prompt/gitprompt.sh
 
