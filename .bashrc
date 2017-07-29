@@ -1,4 +1,7 @@
-# check the window size after each command and, if necessary,
+# Default Ubuntu prompt
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# check the window size after each if command, and necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
@@ -36,6 +39,8 @@ fi
 
 # Fancy Prompt
 GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_SHOW_UPSTREAM=1
+GIT_PROMPT_THEME=Solarized
 source ~/.bash-git-prompt/gitprompt.sh
 
 # History
@@ -64,6 +69,12 @@ alias gnew="git log HEAD@{1}..HEAD@{0}"
 # Add uncommitted and unstaged changes to the last commit
 alias gcaa="git commit -a --amend -C HEAD"
 
+# Tmux aliases
+alias tmux="tmux -2 -u"
+
+# Python 3 virtual environment
+alias pyenv="source ~/pyenv/bin/activate"
+
 # Golang
 export GOPATH=~/.gopath
 
@@ -79,5 +90,5 @@ fi
 
 # Path
 
-pathmunge $GOPATH/bin
+pathmunge $GOPATH/bin:/usr/local/go/bin
 
