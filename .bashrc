@@ -96,3 +96,5 @@ fi
 
 pathmunge $GOPATH/bin:/usr/local/go/bin
 
+source ~/.bash_aliases.local
+
