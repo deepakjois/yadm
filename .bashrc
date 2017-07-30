@@ -58,9 +58,6 @@ alias pyenv="source ~/pyenv/bin/activate"
 alias vsrv="vim --servername srv"
 alias vr="vim --servername srv --remote-silent"
 
-# Golang
-export GOPATH=~/.gopath
-
 pathmunge () {
 if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
    if [ "$2" = "after" ] ; then
@@ -73,7 +70,7 @@ fi
 
 # Path
 
-pathmunge $GOPATH/bin:/usr/local/go/bin
+pathmunge $HOME/go/bin
 
 source ~/.bash_aliases.local
 
