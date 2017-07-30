@@ -68,9 +68,11 @@ if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
 fi
 }
 
-# Path
+# GOROOT
+export GOROOT=$HOME/.go1.8
 
-pathmunge $HOME/go/bin
+# Path
+pathmunge $GOROOT/bin:$HOME/go/bin
 
 source ~/.bash_aliases.local
 
