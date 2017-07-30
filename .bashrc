@@ -1,4 +1,4 @@
-source ~/.bashrc.local
+
 
 # check the window size after each if command, and necessary,
 # update the values of LINES and COLUMNS.
@@ -72,7 +72,7 @@ fi
 export GOROOT=$HOME/.go1.8
 
 # Path
-pathmunge $GOROOT/bin:$HOME/go/bin
+pathmunge $GOROOT/bin:$HOME/go/bin:$HOME/.cargo/bin
 
 source ~/.bash_aliases.local
 
