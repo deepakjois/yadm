@@ -58,6 +58,9 @@ alias pyenv="source ~/pyenv/bin/activate"
 alias vsrv="vim --servername srv"
 alias vr="vim --servername srv --remote-silent"
 
+# Backup alias
+alias configbak="rsync --verbose --progress --stats --compress --rsh=/usr/bin/ssh --recursive --times --perms --links --delete=during ~/.config deepak@192.168.0.100:backups/cottongeeks"
+
 pathmunge () {
 if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
    if [ "$2" = "after" ] ; then
