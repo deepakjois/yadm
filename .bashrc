@@ -1,4 +1,4 @@
-
+source ~/.bashrc.local
 
 # check the window size after each if command, and necessary,
 # update the values of LINES and COLUMNS.
