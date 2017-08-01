@@ -1,3 +1,12 @@
+# Thinkpad backlight control
+bloff () {
+echo 0 | sudo tee /sys/class/leds/tpacpi\:\:kbd_backlight/brightness
+}
+
+blon () {
+  echo 1 | sudo tee /sys/class/leds/tpacpi\:\:kbd_backlight/brightness
+}
+
 # Default Ubuntu prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
