@@ -1,6 +1,7 @@
 [user]
 	name = Deepak Jois
 	email = deepak.jois@gmail.com
+	signingkey = C58575B5D73E76F7
 [color]
 	status = auto
 	diff = auto
