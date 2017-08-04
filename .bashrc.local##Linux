@@ -48,3 +48,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+# GOROOT
+export GOROOT=$HOME/.go1.8
