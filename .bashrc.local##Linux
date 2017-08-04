@@ -7,6 +7,15 @@ blon () {
   echo 1 | sudo tee /sys/class/leds/tpacpi\:\:kbd_backlight/brightness
 }
 
+# HiDPI font scaling on/off
+hidpion () {
+  gsettings set org.gnome.desktop.interface text-scaling-factor 1.2
+}
+
+hidpioff () {
+  gsettings set org.gnome.desktop.interface text-scaling-factor 1
+}
+
 # Default Ubuntu prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
