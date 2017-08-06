@@ -18,11 +18,11 @@ hidpioff () {
 
 # Rhythbox CLI control
 pl () {
-  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.rhythmbox /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play > /dev/null
+  dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.rhythmbox /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play
 }
 
 pp () {
-  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.rhythmbox /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause > /dev/null
+  dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.rhythmbox /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
 }
 
 # Default Ubuntu prompt
