@@ -1,12 +1,7 @@
-source ~/.bashrc.local
-
 # check the window size after each if command, and necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -74,11 +69,10 @@ if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
 fi
 }
 
-# GOROOT
-export GOROOT=$HOME/.go1.8
 
 # Path
 pathmunge $GOROOT/bin:$HOME/go/bin:$HOME/.cargo/bin
 
+source ~/.bashrc.local
 source ~/.bash_aliases.local
 
