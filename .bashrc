@@ -71,7 +71,7 @@ fi
 
 
 # Path
-pathmunge $GOROOT/bin:$HOME/go/bin:$HOME/.cargo/bin
+pathmunge $HOME/go/bin:$HOME/.cargo/bin
 
 source ~/.bashrc.local
 source ~/.bash_aliases.local
