@@ -1,0 +1,5 @@
+#!/bin/sh
+# It is necessary to launch VS Code from the CLI, to pick up all the
+# environment variables. But it also leaves behind ugly messages on
+# standard output.
+code &> /dev/null &
