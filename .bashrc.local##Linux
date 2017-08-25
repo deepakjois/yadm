@@ -66,4 +66,4 @@ fi
 
 # GOROOT
 export GOROOT=$HOME/.go1.8
-pathmunge $GOROOT/bin
+pathmunge $GOROOT/bin:~/.local/bin
