@@ -63,7 +63,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Tilix VTE
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
 
 # GOROOT
 export GOROOT=$HOME/.go1.9
 pathmunge $GOROOT/bin:~/.local/bin
+
