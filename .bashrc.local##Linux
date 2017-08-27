@@ -70,5 +70,5 @@ fi
 
 # GOROOT
 export GOROOT=$HOME/.go1.9
-pathmunge $GOROOT/bin:~/.local/bin
+pathmunge $GOROOT/bin
 
