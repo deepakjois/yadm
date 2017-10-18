@@ -69,7 +69,7 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 # For Sway: map caps to Ctrl
-export XKB_DEFAULT_OPTIONS=ctrl:nocaps
+# export XKB_DEFAULT_OPTIONS=ctrl:nocaps
 
 
 # GOROOT
