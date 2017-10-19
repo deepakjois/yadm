@@ -8,5 +8,7 @@
     "vim.insertModeKeyBindings": [{
       "before": ["j", "j"],
       "after": ["<Esc>"]
-    }]
+    }
+  ],
+  "workbench.startupEditor": "newUntitledFile"
 }
