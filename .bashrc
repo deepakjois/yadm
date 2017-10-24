@@ -76,3 +76,5 @@ pathmunge $HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/bin
 source ~/.bashrc.local
 source ~/.bash_aliases.local
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
