@@ -30,6 +30,10 @@ backupto () {
   rsync --verbose --progress --stats --compress --rsh=/usr/bin/ssh --recursive --times --perms --links --delete=during --exclude=Volumes --exclude=Music --exclude=Downloads --exclude=Dropbox --exclude=.gvfs --exclude=.dbus --exclude=.cache --exclude=.config/google-chrome --exclude snap --exclude=.local --exclude=.dropbox --exclude=.git-credential-cache --exclude=.config/configstore --exclude=.xsession-errors  ~/ deepak@$1:backups/cottongeeks/
 }
 
+gnome () {
+  XDG_SESSION_TYPE=wayland exec dbus-run-session  gnome-session
+}
+
 # Default Ubuntu prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
