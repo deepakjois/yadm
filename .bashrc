@@ -78,3 +78,7 @@ source ~/.bash_aliases.local
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/deepak/.sdkman"
+[[ -s "/home/deepak/.sdkman/bin/sdkman-init.sh" ]] && source "/home/deepak/.sdkman/bin/sdkman-init.sh"
