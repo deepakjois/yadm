@@ -76,7 +76,4 @@ fi
 # export XKB_DEFAULT_OPTIONS=ctrl:nocaps
 
 
-# GOROOT
-GOROOT=$HOME/.go1.9
-pathmunge $GOROOT/bin
 
