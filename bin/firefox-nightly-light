@@ -1,0 +1,2 @@
+#!/bin/sh
+env GTK_THEME=Adwaita:light firefox-nightly
