@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Select layout of the window based on window height/width
+
+height=`tmux display-message -p '#{window_height}'`
+width=`tmux display-message -p '#{window_width}'`
+if [ "$width" -gt "100" ]
+then
+  tmux select-layout even-horizontal
+else
+  tmux select-layout even-vertical
+fi
+
