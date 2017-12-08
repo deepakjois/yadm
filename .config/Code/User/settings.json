@@ -1,12 +1,17 @@
 {
   "workbench.activityBar.visible": false,
-    "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "none",
-    "window.zoomLevel": 1,
-    "vim.disableAnnoyingNeovimMessage": true,
-    "vim.insertModeKeyBindings": [{
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "none",
+  "window.zoomLevel": 1,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "workbench.startupEditor": "newUntitledFile",
@@ -16,5 +21,8 @@
     80,
     100
   ],
-  "workbench.colorTheme": "Monokai"
+  "workbench.colorTheme": "Solarized Dark",
+  "git.confirmSync": false,
+  "window.menuBarVisibility": "toggle",
+  "editor.minimap.enabled": false
 }
