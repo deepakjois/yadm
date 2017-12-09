@@ -7,8 +7,6 @@ nvim_pane=$(tmux list-panes -F "#{pane_index} #{pane_current_command}" | grep nv
 if [  "$nvim_pane" == "" ] ; then
   tmux display "nvim pane not found"
 else
-  tmux break-pane -d -s :.$nvim_pane -n "nvim"
-  tmux move-window -d -s "nvim" -t 0
-  tmux move-window -r
+  tmux break-pane -d -s :.$nvim_pane -n "nvim" \; move-window -d -s "nvim" -t 0 \; move-window -r
 fi
 
