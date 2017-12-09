@@ -35,7 +35,7 @@ gnome () {
 }
 
 nv() {
-  nvr  --servername `nvr --serverlist` "$@"
+  nvr  --servername `nvr --serverlist` "$@" --nostart
 }
 
 # Default Ubuntu prompt
