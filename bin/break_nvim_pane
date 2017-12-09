@@ -1,0 +1,15 @@
+
+#!/bin/bash
+
+# Break nvim pane to a new window of its own
+
+nvim_pane=$(tmux list-panes -F "#{pane_index} #{pane_current_command}" | grep nvim | awk '{print $1}')
+
+if [  "$nvim_pane" == "" ] ; then
+  tmux display "nvim pane not found"
+else
+  tmux break-pane -d -s :.$nvim_pane -n "nvim"
+  tmux move-window -d -s "nvim" -t 0
+  tmux move-window -r
+fi
+
