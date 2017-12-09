@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Move nvim window to current session from the other session.
+
+sess=`tmux display-message -p '#S'`
+case "$sess" in
+  home)
+    other=work
+    ;;
+
+  work)
+    other=home
+    ;;
+
+  *)
+    exit 0
+esac
+
+
+if $(tmux list-windows -F "#{window_name}" | grep -q nvim) ; then
+  tmux display "nvim already present!"
+else
+  if $(tmux list-windows -t $other -F "#{window_name}" | grep -q nvim) ; then
+    tmux move-window -s $other:nvim -t :0 -d
+    tmux move-window -r
+  else
+    tmux display "nvim not found in $other"
+  fi
+fi
