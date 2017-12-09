@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Break nvim pane to a new window of its own
