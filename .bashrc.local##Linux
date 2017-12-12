@@ -35,7 +35,7 @@ gnome () {
 }
 
 nv() {
-  nvr  --servername /tmp/nvmsocket --nostart "$@"
+  nvr  --servername $(nvr --serverlist | head -n 1) --nostart "$@"
 }
 
 # Default Ubuntu prompt
