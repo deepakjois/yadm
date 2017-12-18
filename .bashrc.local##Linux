@@ -79,5 +79,5 @@ fi
 # For Sway: map caps to Ctrl
 # export XKB_DEFAULT_OPTIONS=ctrl:nocaps
 
-
+export NVIM_LISTEN_ADDRESS=/tmp/nvmsocket
 
