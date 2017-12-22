@@ -75,6 +75,7 @@ pathmunge $HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/bin
 
 source ~/.bashrc.local
 source ~/.bash_aliases.local
+[ -f ~/keybase/dotfiles/.bashrc.private ] && source ~/keybase/dotfiles/.bashrc.privatej
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files'
