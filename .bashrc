@@ -56,9 +56,6 @@ alias vr="vim --servername srv --remote-silent"
 # Go code
 alias gocode="cd ~/go/src/github.com"
 
-# Backup alias
-alias configbak="rsync --verbose --progress --stats --compress --rsh=/usr/bin/ssh --recursive --times --perms --links --delete=during ~/.config deepak@192.168.0.100:backups/cottongeeks"
-
 pathmunge () {
 if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
    if [ "$2" = "after" ] ; then
@@ -75,8 +72,7 @@ pathmunge $HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/bin
 
 source ~/.bashrc.local
 source ~/.bash_aliases.local
-[ -f ~/keybase/dotfiles/.bashrc.private ] && source ~/keybase/dotfiles/.bashrc.privatej
-
+[ -f ~/keybase/dotfiles/.bashrc.private ] && source ~/keybase/dotfiles/.bashrc.private
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
