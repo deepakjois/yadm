@@ -23,7 +23,8 @@
 	mail = codereview mail
 	pending = codereview pending
 	submit = codereview submit
-	sync = codereview sync
+  # sync = codereview sync
+  sync = "!f(){ local branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e \"s/* \\(.*\\)/\\1/\"`; git pull origin $branch && git push origin $branch; }; f"
 [github]
 	user = deepakjois
 [rebase]
