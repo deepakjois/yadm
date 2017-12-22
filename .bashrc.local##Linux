@@ -68,4 +68,4 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
 
-export NVIM_LISTEN_ADDRESS=/tmp/nvmsocket
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
