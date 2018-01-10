@@ -3,5 +3,5 @@
 set -ex
 
 sudo pacman --noconfirm -Syu
-trizen -Syu
+trizen --noconfirm -Syu
 
