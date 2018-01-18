@@ -1,3 +1,3 @@
 source ~/.bashrc
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/node/bin:$HOME/.cargo/bin:$PATH"
