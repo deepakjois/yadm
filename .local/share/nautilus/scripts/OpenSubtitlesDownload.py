@@ -11,7 +11,7 @@
 # Learn much more about OpenSubtitlesDownload.py on its wiki:
 # https://github.com/emericg/OpenSubtitlesDownload/wiki
 
-# Copyright (c) 2017 by Emeric GRANGE <emeric.grange@gmail.com>
+# Copyright (c) 2018 by Emeric GRANGE <emeric.grange@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -50,6 +50,7 @@ else: # python2
     from xmlrpclib import ServerProxy, Error
 
 # ==== Opensubtitles.org server settings =======================================
+
 # XML-RPC server domain for opensubtitles.org:
 osd_server = ServerProxy('http://api.opensubtitles.org/xml-rpc')
 
@@ -107,6 +108,11 @@ opt_selection_count    = 'off'
 
 # Enables extra output. Can be overridden at run time with '-v' argument.
 opt_verbose            = 'off'
+
+# ==== Exit codes ==============================================================
+# 0: Success and subtitles downloaded
+# 1: Success but no subtitles found
+# 2: Failure
 
 # ==== Super Print =============================================================
 # priority: info, warning, error
@@ -171,7 +177,7 @@ def checkFileValidity(path):
 
     return True
 
-# ==== Check subtitles presence ================================================
+# ==== Check for existing subtitles file =======================================
 
 def checkSubtitlesExists(path):
     """Check if a subtitles already exists for the current file"""
@@ -399,6 +405,8 @@ def dependencyChecker():
 # ==== Main program (execution starts here) ====================================
 # ==============================================================================
 
+ExitCode = 2
+
 # ==== Argument parsing
 
 # Get OpenSubtitlesDownload.py script path
@@ -412,7 +420,7 @@ parser = argparse.ArgumentParser(prog='OpenSubtitlesDownload.py',
 parser.add_argument('-g', '--gui', help="Select the GUI you want from: auto, kde, gnome, cli (default: auto)")
 parser.add_argument('-a', '--auto', help="Automatically choose and download best fitted subtitles from the search results (default: disabled)", action='store_true')
 parser.add_argument('-v', '--verbose', help="Enables verbose output (default: disabled)", action='store_true')
-parser.add_argument('-l', '--lang', help="Specify the language in which the subtitles should be downloaded (default: eng).\nSyntax:\n-l eng,fre : search in both language\n-l eng -l fre : download both language", nargs='?', action='append')
+parser.add_argument('-l', '--lang', help="Specify the language in which the subtitles should be downloaded (default: eng).\nSyntax:\n-l eng,fre: search in both language\n-l eng -l fre: download both language", nargs='?', action='append')
 parser.add_argument('filePathListArg', help="The video file(s) for which subtitles should be searched and downloaded", nargs='+')
 
 # Only use ArgumentParser if we have arguments...
@@ -457,7 +465,7 @@ if opt_gui not in ['gnome', 'kde', 'cli']:
 # ==== Check for the necessary tools (must be done after GUI auto detection)
 
 if dependencyChecker() == False:
-    sys.exit(1)
+    sys.exit(2)
 
 # ==== Get valid video paths
 
@@ -503,7 +511,7 @@ if opt_search_overwrite == 'off':
 
     # If videoPathList is empty, exit!
     if len(videoPathList) == 0:
-        sys.exit(0)
+        sys.exit(1)
 
 # The first video file will be processed by this instance
 videoPath = videoPathList[0]
@@ -537,9 +545,10 @@ for videoPathDispatch in videoPathList:
     # Do not spawn too many instances at the same time
     time.sleep(0.33)
 
-# ==== Search and download subtitles
+# ==== Search and download subtitles ===========================================
 
 try:
+    # ==== Connection
     try:
         # Connection to opensubtitles.org server
         session = osd_server.LogIn(osd_username, osd_password, osd_language, 'opensubtitles-download 3.6')
@@ -552,12 +561,12 @@ try:
         except Exception:
             # Failed connection attempts?
             superPrint("error", "Connection error!", "Unable to reach opensubtitles.org servers!\n\nPlease check:\n- Your Internet connection status\n- www.opensubtitles.org availability\n- Your downloads limit (200 subtitles per 24h)\nThe subtitles search and download service is powered by opensubtitles.org. Be sure to donate if you appreciate the service provided!")
-            sys.exit(1)
+            sys.exit(2)
 
     # Connection refused?
     if session['status'] != '200 OK':
         superPrint("error", "Connection error!", "Opensubtitles.org servers refused the connection: " + session['status'] + ".\n\nPlease check:\n- Your Internet connection status\n- www.opensubtitles.org availability\n- Your 200 downloads per 24h limit")
-        sys.exit(1)
+        sys.exit(2)
 
     searchLanguage = 0
     searchLanguageResult = 0
@@ -570,7 +579,9 @@ try:
     for SubLanguageID in opt_languages:
         searchLanguage += len(SubLanguageID.split(','))
 
-    # Search for available subtitles using file hash and size
+    searchResultPerLanguage = [searchLanguage]
+
+    # ==== Search for available subtitles using file hash and size
     for SubLanguageID in opt_languages:
         searchList = []
         searchList.append({'sublanguageid':SubLanguageID, 'moviehash':videoHash, 'moviebytesize':str(videoSize)})
@@ -687,32 +698,35 @@ try:
                     print(">> Downloading '" + subtitlesList['data'][subIndex]['LanguageName'] + "' subtitles for '" + videoTitle + "'")
                     process_subtitlesDownload = subprocess.call("wget -nv -O - " + subURL + " | gunzip > " + subPath, shell=True)
 
-                # If an error occur, say so
+                # If an error occurs, say so
                 if process_subtitlesDownload != 0:
                     superPrint("error", "Subtitling error!", "An error occurred while downloading or writing <b>" + subtitlesList['data'][subIndex]['LanguageName'] + "</b> subtitles for <b>" + videoTitle + "</b>.")
                     osd_server.LogOut(session['token'])
-                    sys.exit(1)
+                    sys.exit(2)
 
     # Print a message if no subtitles have been found, for any of the languages
     if searchLanguageResult == 0:
         superPrint("info", "No subtitles found for: " + videoFileName, '<b>No subtitles found</b> for this video:\n<i>' + videoFileName + '</i>')
-
-    # Disconnect from opensubtitles.org server, then exit
-    if session['token']: osd_server.LogOut(session['token'])
-    sys.exit(0)
+        ExitCode = 1
+    else:
+        ExitCode = 0
 
 except (OSError, IOError, RuntimeError, TypeError, NameError, KeyError):
 
-    # Do not warn about remote disconnection # bug/feature of python 3.5
+    # Do not warn about remote disconnection # bug/feature of python 3.5?
     if "http.client.RemoteDisconnected" in str(sys.exc_info()[0]):
-        sys.exit(1)
+        sys.exit(ExitCode)
 
     # An unknown error occur, let's apologize before exiting
     superPrint("error", "Unknown error!", "OpenSubtitlesDownload encountered an <b>unknown error</b>, sorry about that...\n\n" + \
                "Error: <b>" + str(sys.exc_info()[0]).replace('<', '[').replace('>', ']') + "</b>\n\n" + \
                "Just to be safe, please check:\n- www.opensubtitles.org availability\n- Your downloads limit (200 subtitles per 24h)\n- Your Internet connection status\n- That are using the latest version of this software ;-)")
 
-    # Disconnect from opensubtitles.org server, then exit
-    if session['token']: osd_server.LogOut(session['token'])
+except Exception:
 
-    sys.exit(1)
+    # Catch unhandled exceptions but do not spawn an error window
+    print("Unexpected error:", str(sys.exc_info()[0]))
+
+# Disconnect from opensubtitles.org server, then exit
+if session['token']: osd_server.LogOut(session['token'])
+sys.exit(ExitCode)
