@@ -1,28 +1,12 @@
-# Thinkpad backlight control
-bloff () {
-echo 0 | sudo tee /sys/class/leds/tpacpi\:\:kbd_backlight/brightness
-}
-
-blon () {
-  echo 1 | sudo tee /sys/class/leds/tpacpi\:\:kbd_backlight/brightness
-}
-
 # HiDPI font scaling on/off
 hidpion () {
   gsettings set org.gnome.desktop.interface text-scaling-factor 1.2
+  rm -f ~/.config/chrome-flags.conf && ln -rs ~/.config/chrome-flags-hidpi.conf ~/.config/chrome-flags.conf
 }
 
 hidpioff () {
   gsettings set org.gnome.desktop.interface text-scaling-factor 1
-}
-
-# Rhythbox CLI control
-pl () {
-  dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.rhythmbox /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play
-}
-
-pp () {
-  dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.rhythmbox /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
+  rm -f ~/.config/chrome-flags.conf && ln -rs ~/.config/chrome-flags-nohidpi.conf ~/.config/chrome-flags.conf
 }
 
 # Default Ubuntu prompt

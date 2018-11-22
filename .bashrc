@@ -46,9 +46,6 @@ alias gcaa="git commit -a --amend -C HEAD"
 # Tmux aliases
 alias tmux="tmux -2 -u"
 
-# Python 3 virtual environment
-alias pyenv="source ~/pyenv/bin/activate"
-
 # Vim server client stuff
 alias vsrv="vim --servername srv"
 alias vr="vim --servername srv --remote-silent"
@@ -83,5 +80,3 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export SDKMAN_DIR="/home/deepak/.sdkman"
 [[ -s "/home/deepak/.sdkman/bin/sdkman-init.sh" ]] && source "/home/deepak/.sdkman/bin/sdkman-init.sh"
 
-# added by Miniconda3 installer
-export PATH="/home/deepak/miniconda3/bin:$PATH"
