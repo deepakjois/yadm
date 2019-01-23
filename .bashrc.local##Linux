@@ -1,14 +1,18 @@
 # HiDPI font scaling on/off
 hidpion () {
+  gsettings set org.gnome.desktop.interface text-scaling-factor 1.2
   FIREFOX_PROFILE_PATH=$(grep 'Path=' ~/.mozilla/firefox/profiles.ini | sed s/^Path=//)
   rm -f ~/.mozilla/firefox/$FIREFOX_PROFILE_PATH/user.js && ln -rs ~/.mozilla/firefox/user-hidpi.js ~/.mozilla/firefox/$FIREFOX_PROFILE_PATH/user.js
   rm -f ~/.config/chrome-flags.conf && ln -rs ~/.config/chrome-flags-hidpi.conf ~/.config/chrome-flags.conf
+  killall firefox-bin chrome
 }
 
 hidpioff () {
+  gsettings set org.gnome.desktop.interface text-scaling-factor 1
   FIREFOX_PROFILE_PATH=$(grep 'Path=' ~/.mozilla/firefox/profiles.ini | sed s/^Path=//)
   rm -f ~/.mozilla/firefox/$FIREFOX_PROFILE_PATH/user.js && ln -rs ~/.mozilla/firefox/user-nohidpi.js ~/.mozilla/firefox/$FIREFOX_PROFILE_PATH/user.js
   rm -f ~/.config/chrome-flags.conf && ln -rs ~/.config/chrome-flags-nohidpi.conf ~/.config/chrome-flags.conf
+  killall firefox-bin chrome
 }
 
 # Default Ubuntu prompt
