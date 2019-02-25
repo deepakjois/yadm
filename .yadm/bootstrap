@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+cd "$HOME"
+
+# Update submodules
+yadm submodule update --recursive --init
+
+# Update vim submodules
+cd .vim && git submodule update --recursive --init && cd ..
+
+# TODO add symlink to .vimrc and fzf
