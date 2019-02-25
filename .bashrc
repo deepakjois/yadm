@@ -50,13 +50,6 @@ export EDITOR=nvim
 # Tmux aliases
 alias tmux="tmux -2 -u"
 
-# Vim server client stuff
-alias vsrv="vim --servername srv"
-alias vr="vim --servername srv --remote-silent"
-
-# Go code
-alias gocode="cd ~/go/src/github.com"
-
 pathmunge () {
 if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
    if [ "$2" = "after" ] ; then

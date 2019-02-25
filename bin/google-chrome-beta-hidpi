@@ -1,2 +1,0 @@
-#!/bin/sh
-/usr/bin/google-chrome-beta --force-device-scale-factor=1.4
