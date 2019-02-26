@@ -19,7 +19,7 @@ ln -s .vim/bundle/fzf .fzf
 
 # Symlink private dirs from keybase
 if [ -d .keybase/secrets ]; then
-  ln -s .keybase/secrets/.aws .aws
-  ln -s .keybase/secrets/.ssh .ssh
-  ln -s .keybase/secrets/.gnupg .gnupg
+  ln -s .keybase/secrets/.aws
+  ln -s .keybase/secrets/.gnupg
 fi
+
