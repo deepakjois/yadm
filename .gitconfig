@@ -41,3 +41,5 @@
 	gpgsign = true
 [credential]
 	helper = store
+[submodule]
+	recurse = true
