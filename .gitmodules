@@ -2,7 +2,7 @@
 	path = .vim
 	url = https://github.com/deepakjois/my-vim
 [submodule ".bash.git-prompt"]
-	path = .bash.git-prompt
+	path = .bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt.git
 [submodule ".tmux/plugins/tmux-continuum"]
 	path = .tmux/plugins/tmux-continuum
