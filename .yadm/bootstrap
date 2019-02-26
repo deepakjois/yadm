@@ -16,3 +16,10 @@ ln -s .vim/bundle/fzf .fzf
 
 # Install .fzf
 .fzf/install --64 --key-bindings --completion --no-update-rc
+
+# Symlink private dirs from keybase
+if [ -d .keybase/secrets ]; then
+  ln -s .keybase/secrets/.aws .aws
+  ln -s .keybase/secrets/.ssh .ssh
+  ln -s .keybase/secrets/.gnupg .gnupg
+fi
