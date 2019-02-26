@@ -10,4 +10,9 @@ yadm submodule update --recursive --init
 # Update vim submodules
 cd .vim && git submodule update --recursive --init && cd ..
 
-# TODO add symlink to .vimrc and fzf
+# Add symlink to .vimrc and fzf
+ln -s .vim/.vimrc .vimrc
+ln -s .vim/bundle/fzf .fzf
+
+# Install .fzf
+.fzf/install --no-bash --no-zsh --no-fish --64
