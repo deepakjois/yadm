@@ -15,4 +15,4 @@ ln -s .vim/.vimrc .vimrc
 ln -s .vim/bundle/fzf .fzf
 
 # Install .fzf
-.fzf/install --no-bash --no-zsh --no-fish --64
+.fzf/install --64 --key-bindings --completion --no-update-rc
