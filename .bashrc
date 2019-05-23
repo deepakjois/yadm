@@ -47,6 +47,9 @@ alias gcaa="git commit -a --amend -C HEAD"
 export GIT_EDITOR=nvim
 export EDITOR=nvim
 
+# GPG tty
+export GPG_TTY=$(tty)
+
 # Tmux aliases
 alias tmux="tmux -2 -u"
 
