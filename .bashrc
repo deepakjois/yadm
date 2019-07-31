@@ -24,6 +24,10 @@ export HISTSIZE=
 HISTCONTROL=ignoreboth:erasedups
 shopt -s cmdhist
 
+# pyenv
+eval "$(pyenv init -)"
+
+
 # Git aliases
 alias ga='git add'
 alias gst='git status --short --branch'
@@ -62,6 +66,7 @@ if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
    fi
 fi
 }
+
 
 
 export npm_config_prefix=$HOME/npm
