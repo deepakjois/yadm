@@ -1,4 +1,6 @@
-call plug#begin('~/local/share/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
@@ -13,7 +15,6 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-vinegar'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 set nocompatible                " choose no compatibility with legacy vi
