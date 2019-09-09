@@ -25,7 +25,7 @@ HISTCONTROL=ignoreboth:erasedups
 shopt -s cmdhist
 
 # pyenv
-eval "$(pyenv init -)"
+[[ $(type -p "pyenv") ]] && eval "$(pyenv init -)"
 
 
 # Git aliases
