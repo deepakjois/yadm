@@ -7,19 +7,10 @@ cd "$HOME"
 # Update submodules
 yadm submodule update --recursive --init
 
-# Update vim submodules
-cd .vim && git submodule update --recursive --init && cd ..
-
-# Add symlink to .vimrc and fzf
-ln -s .vim/.vimrc .vimrc
-ln -s .vim/bundle/fzf .fzf
-
-# Install .fzf
-.fzf/install --64 --key-bindings --completion --no-update-rc
 
 # Symlink private dirs from keybase
 if [ -d .keybase/secrets ]; then
-  ln -s .keybase/secrets/.aws
-  rm -rf .gnupg && ln -s .keybase/secrets/.gnupg
+  ln -sf .keybase/secrets/.aws
+  rm -rf .gnupg && ln -sf .keybase/secrets/.gnupg
 fi
 
