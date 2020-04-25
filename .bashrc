@@ -74,14 +74,14 @@ export npm_config_prefix=$HOME/npm
 # Path
 pathmunge $HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/npm/bin
 
-source ~/.bashrc.local
-source ~/.bash_aliases.local
-[ -f ~/.keybase/dotfiles/.bashrc.private ] && source ~/.keybase/dotfiles/.bashrc.private
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
+[ -f ~/bash_aliases.local ] && source ~/.bash_aliases.local
+
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/deepak/.sdkman"
 [[ -s "/home/deepak/.sdkman/bin/sdkman-init.sh" ]] && source "/home/deepak/.sdkman/bin/sdkman-init.sh"
 
