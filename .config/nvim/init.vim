@@ -12,6 +12,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-vinegar'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 
 set nocompatible                " choose no compatibility with legacy vi
