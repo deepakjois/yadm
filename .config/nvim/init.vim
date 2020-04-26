@@ -1,14 +1,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'chrisbra/NrrwRgn'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'godlygeek/tabular'
 Plug 'vim-airline/vim-airline'
 Plug 'fatih/vim-go'
-Plug 'tpope/vim-ragtag'
 Plug 'airblade/vim-rooter'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-surround'
