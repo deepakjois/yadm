@@ -59,3 +59,10 @@ http://vimcasts.org/episodes/operating-on-search-matches-using-gn/
 If a buffer has a number `5`, we can delete it using `:5bw` (or `:5bw!` to
 force).
 
+### Tab editing in vim
+This allows tab editing in Vim w/ a tab line on top. You can use `gt` to navigate to the next tab.
+```
+:tabedit </path/to/file>
+:set showtabline=1
+```
+
