@@ -81,7 +81,4 @@ pathmunge $HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/npm/bin
 export FZF_DEFAULT_COMMAND='rg --files'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/deepak/.sdkman"
-[[ -s "/home/deepak/.sdkman/bin/sdkman-init.sh" ]] && source "/home/deepak/.sdkman/bin/sdkman-init.sh"
 
