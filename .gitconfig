@@ -43,3 +43,5 @@
 	helper = store
 [submodule]
 	recurse = true
+[pull]
+	ff = only
