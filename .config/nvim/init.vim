@@ -13,6 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 call plug#end()
 
 set nocompatible                " choose no compatibility with legacy vi
@@ -42,6 +43,10 @@ set hidden
 "" Line numbers
 set nonumber
 nnoremap <C-n> :set number!<CR>
+
+" Tab Bar
+set showtabline=1
+
 
 " Courtesy - https://github.com/DanToml/Dotfiles/blob/master/.vimrc
 " Integrate with system keyboard on Unix Systems.
@@ -230,3 +235,6 @@ match ErrorMsg '\s\+$'
 vnoremap < <gv
 vnoremap > >gv
 
+" Set vimwiki default syntax to be markdown
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
