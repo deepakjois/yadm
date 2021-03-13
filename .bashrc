@@ -4,6 +4,7 @@ shopt -s checkwinsize
 
 set -o vi
 bind '"jj":vi-movement-mode'
+bind -m vi-insert "\C-l":clear-screen
 
 # some more ls aliases
 alias ll='ls -alF'
