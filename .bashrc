@@ -2,6 +2,8 @@
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+set -o vi
+bind '"jj":vi-movement-mode'
 
 # some more ls aliases
 alias ll='ls -alF'
