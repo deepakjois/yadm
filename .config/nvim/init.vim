@@ -13,6 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'unblevable/quick-scope'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 call plug#end()
 
